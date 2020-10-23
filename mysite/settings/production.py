@@ -6,7 +6,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-ALLOWED_HOSTS = ["covid-hospitals-tracker.herokuapp.com"]
+ALLOWED_HOSTS = ["uni-assign.herokuapp.com"]
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_SSL_REDIRECT = True
