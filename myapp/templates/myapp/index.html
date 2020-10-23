@@ -1,0 +1,23 @@
+{% load socialaccount %}
+<html>
+  <head>
+    <title>SignUp/Login</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    {% if user.is_authenticated %}
+    <p>Hello {{ user.username }} !</p>
+    {% else %}
+    <h1>Not logged in?</h1>
+    <a href="{% url 'myapp:user-login' %}">Login</a>
+    <br />
+    OR
+    <br />
+    <a href="{% url 'myapp:user-register' %}">SignUp on Uniacco</a>
+    <br />
+    OR
+    <br />
+    <a href="{% provider_login_url 'google' %}">Login using Google</a>
+    {% endif %}
+  </body>
+</html>

@@ -1,6 +1,8 @@
 import os
 from .base import *
 
+# Local development settings 
+
 DEBUG = True
 ALLOWED_HOSTS = []
 SECURE_CONTENT_TYPE_NOSNIFF = False

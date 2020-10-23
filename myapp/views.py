@@ -1,10 +1,7 @@
 import requests
-from django.shortcuts import render
 from django.contrib.auth.models import User
 
-from rest_framework import status
 from rest_framework import generics
-from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -15,17 +12,18 @@ from .models import UserLoginHistory
 
 
 class UserRegisterView(generics.CreateAPIView):
+    """
+    User Registration View
+    """
     model = User
     serializer_class = UserRegisterSerializer
     permission_classes = (AllowAny,)
 
 
-class UserAuthView(generics.CreateAPIView):
-    model = User
-    serializer_class = UserRegisterSerializer
-
-
 class UserLoginView(TokenObtainPairView):
+    """
+    User Login View
+    """
     serializer_class = TokenObtainPairSerializer
 
     def post(self, request, *args, **kwargs):
@@ -33,10 +31,10 @@ class UserLoginView(TokenObtainPairView):
         user = User.objects.get(username=username)
         ip_address = get_client_ip(request)
 
-        # task1
+        # Save login history record
         UserLoginHistory.objects.create(user=user, ip=ip_address)
         
-        # task2
+        # Send webhook to team
         uri = "https://encrusxqoan0b.x.pipedream.net/"
         payload = {
             "user": user.id,

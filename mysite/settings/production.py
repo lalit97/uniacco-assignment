@@ -2,6 +2,7 @@ import os
 import django_heroku
 from .base import *
 
+# Production settings 
 # Deployement checklist `python manage.py check --deploy`
 # SECURITY WARNING: don't run with debug turned on in production!
 
