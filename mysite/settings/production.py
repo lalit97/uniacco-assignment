@@ -5,7 +5,7 @@ from .base import *
 # Deployement checklist `python manage.py check --deploy`
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["uni-assign.herokuapp.com"]
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
